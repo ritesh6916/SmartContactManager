@@ -1,0 +1,21 @@
+-----------------------------Project INFO and Teach used INFO -------------------------------------------
+
+
+
+
+
+-------------------------------------------Install Software Steps----------------------------------------
+
+Install Thymeleaf:
+
+		Got to: https://www.thymeleaf.org/eclipse-plugin-update-site/
+		Take: http://www.thymeleaf.org/eclipse-plugin-update-site/
+		
+		come to STS or Eclipse: help -> install_new_Software and add the url 
+		
+Install Emmet: 
+		
+		add URL : http://download.emmet.io/eclipse/updates/
+		
+		Note: The url will work but make sure we have Latest STS or Eclipse installed.
+	
