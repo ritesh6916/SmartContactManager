@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity(name = "Contacts")
 public class Contact {
@@ -12,11 +13,11 @@ public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@Column(length = 50, nullable = false)
 	private String name;
-	
-	@Column(length = 50, nullable = true,name = "nick_name")
+
+	@Column(length = 50, nullable = true, name = "nick_name")
 	private String nickName;
 
 	@Column(length = 15, nullable = false)
@@ -24,12 +25,15 @@ public class Contact {
 
 	@Column(length = 50, unique = true)
 	private String email;
-	
+
 	private String occupation;
-	
+
 	@Column(length = 2000)
 	private String info;
 	private String imageUrl;
+
+	@ManyToOne
+	private User user;
 
 	public Contact() {
 		super();
@@ -97,6 +101,14 @@ public class Contact {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

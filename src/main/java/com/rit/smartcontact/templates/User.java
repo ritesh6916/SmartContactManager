@@ -1,10 +1,15 @@
 package com.rit.smartcontact.templates;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "users")
 public class User {
@@ -29,6 +34,11 @@ public class User {
 	private String about;
 	private String ImageUrl;
 	private boolean enabled;
+
+	// to establish relation b/w User & Contact
+	// if we add/delete user, all contacts of this user will be added/deleted
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	List<Contact> contacts = new ArrayList<>();
 
 	public User() {
 		super();
@@ -96,6 +106,14 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
 	}
 
 	@Override
