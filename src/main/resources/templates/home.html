@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<!-- The fragment from base.html will be replace here -->
+<head>
+<meta charset="UTF-8" />
+<title>This is home page</title>
+</head>
+<body>
+	<!-- this section code will be passes as parameter in layout "layout(~{::section})" -->
+	<section>
+		<h1>This is home page</h1>
+		<h2>We are building SpringBoot project...</h2>
+	</section>
+</body>
+</html>
