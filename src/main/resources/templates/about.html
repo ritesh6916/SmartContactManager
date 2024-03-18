@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<!-- The fragment from base.html will be replace here (Complete Base.html in our case) -->
+<head>
+<meta charset="UTF-8" />
+<title>About Page..</title>
+</head>
+<body>
+
+	<!-- this section code will be passes as parameter in layout "layout(~{::section})" -->
+	<section>
+		<h1>This is About page</h1>
+		<h2>This content will be replaces in Base.html and complete base
+			.html will be replaced in about.html</h2>
+	</section>
+
+</body>
+</html>
