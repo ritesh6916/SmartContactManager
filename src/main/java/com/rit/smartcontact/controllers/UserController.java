@@ -2,18 +2,23 @@ package com.rit.smartcontact.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.rit.smartcontact.persistence.UserRepository;
 import com.rit.smartcontact.templates.User;
 
 @Controller
 public class UserController {
 
 	Logger logger = LoggerFactory.getLogger(getClass().getName());
+
+	@Autowired
+	UserRepository userRepository;
 
 	/*
 	 * The model attribute matches the fields form view and user-template and assign
@@ -33,7 +38,9 @@ public class UserController {
 
 		logger.info(user.toString());
 
-		m.addAttribute("user", user); // return same object back
+		User savedUser = userRepository.save(user);
+
+		m.addAttribute("user", savedUser); // return same object back
 		return "signup";
 	}
 
