@@ -19,50 +19,58 @@
 					<div class="my-card mt-3">
 
 						<div class="container text-center">
-
 							<img style="width: 80px;" th:src="@{/images/add-user.png}" alt="" />
-
 						</div>
 
 						<h1 class="text-center">Register Here !!</h1>
 
-						<form th:action="@{/do-register}" method="post">
+						<form th:action="@{/do-register}" method="post"
+							th:object="${user}">
 
 							<!-- To accept Name -->
 							<div class="form-group">
 								<label for="name_field">Your Name</label> <input type="text"
-									class="form-control" id="name_field"
+									class="form-control" id="name_field" name="name"
 									aria-describedby="emailHelp" placeholder="Enter your Name"
-									required="required">
+									required="required" th:value="${user.name}">
 							</div>
 
 							<!-- To accept Email -->
 							<div class="form-group">
 								<label for="email_field">Email address</label> <input
-									type="email" class="form-control" id="email_field"
+									type="email" class="form-control" id="email_field" name="email"
 									aria-describedby="emailHelp" placeholder="Enter your Email"
-									required="required">
+									required="required" th:value="${user.email}">
 							</div>
 
 							<!-- To accept Password -->
 							<div class="form-group">
 								<label for="password_field">Password</label> <input
 									type="password" class="form-control" id="password_field"
-									aria-describedby="emailHelp" placeholder="Provide a Password"
-									required="required">
+									name="password" aria-describedby="emailHelp"
+									placeholder="Provide a Password" required="required">
 							</div>
 
 							<!-- For About -->
-							<div>
-								<textarea placeholder="Enter something about yourself..."
-									rows="7" class="form-control"></textarea>
+							<div class="form-group">
+								<textarea th:value="${user.about}"
+									placeholder="Enter something about yourself..." rows="7"
+									class="form-control" name="about"></textarea>
+							</div>
+
+							<!-- Term & conditions -->
+							<div class="form-group form-check text-center">
+
+								<input type="checkbox" name="agree" class="form-check-input"
+									id="agree" /> <label for="agree">Accept terms &
+									conditions</label>
 							</div>
 
 							<!-- to create buttons -->
 							<div class="container text-center mt-2">
 
-								<button type="button" class="btn btn-primary ">Submit</button>
-								<button type="reset" class="btn btn-warning ">Reset</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-warning">Reset</button>
 
 							</div>
 
