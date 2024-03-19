@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity(name = "users")
 public class User {
@@ -18,9 +20,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(nullable = false, length = 50)
+	@NotBlank(message = "Name field is required..") // server-side validation for blank
+	@Column(nullable = false, length = 50) // database validation
 	private String name;
 
+	@Email(message = "Please enter a valid email.") // server-side bean validation to validate email
 	@Column(unique = true, length = 30)
 	private String email;
 

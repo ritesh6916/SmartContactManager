@@ -38,17 +38,25 @@
 							<!-- To accept Name -->
 							<div class="form-group">
 								<label for="name_field">Your Name</label> <input type="text"
-									class="form-control" id="name_field" name="name"
-									aria-describedby="emailHelp" placeholder="Enter your Name"
-									required="required" th:value="${user.name}">
+									class="form-control "
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}"
+									id="name_field" name="name" aria-describedby="emailHelp"
+									placeholder="Enter your Name" required="required"
+									th:value="${user.name}" />
+								<div class="invalid-feedback"
+									th:each="e : ${#fields.errors('name')}" th:text="${e}"></div>
 							</div>
 
 							<!-- To accept Email -->
 							<div class="form-group">
 								<label for="email_field">Email address</label> <input
-									type="email" class="form-control" id="email_field" name="email"
-									aria-describedby="emailHelp" placeholder="Enter your Email"
-									required="required" th:value="${user.email}">
+									type="email" class="form-control "
+									th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}"
+									id="email_field" name="email" aria-describedby="emailHelp"
+									placeholder="Enter your Email" required="required"
+									th:value="${user.email}" />
+								<div class="invalid-feedback"
+									th:each="e : ${#fields.errors('email')}" th:text="${e}"></div>
 							</div>
 
 							<!-- To accept Password -->
@@ -61,7 +69,7 @@
 
 							<!-- For About -->
 							<div class="form-group">
-								<textarea th:value="${user.about}"
+								<textarea th:text="${user.about}"
 									placeholder="Enter something about yourself..." rows="7"
 									class="form-control" name="about"></textarea>
 							</div>
