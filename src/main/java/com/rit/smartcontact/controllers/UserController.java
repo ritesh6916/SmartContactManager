@@ -2,6 +2,9 @@ package com.rit.smartcontact.controllers;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.rit.smartcontact.helpers.Message;
 import com.rit.smartcontact.persistence.UserRepository;
 import com.rit.smartcontact.templates.User;
-
-import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
@@ -76,6 +76,11 @@ public class UserController {
 			return "signup";
 		}
 
+	}
+
+	public String showDashboard() {
+
+		return "user/user_dashboard";
 	}
 
 }
