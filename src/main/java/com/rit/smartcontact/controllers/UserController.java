@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +24,9 @@ import com.rit.smartcontact.templates.User;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	Logger logger = LoggerFactory.getLogger(getClass().getName());
 
@@ -55,7 +59,7 @@ public class UserController {
 
 			user.setRole("ROLE_USER");
 			user.setEnabled(true);
-
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			logger.info(user.toString());
 
 			userRepository.save(user);
