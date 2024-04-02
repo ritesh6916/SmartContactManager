@@ -26,6 +26,12 @@ public class HomeController {
 
 	Logger logger = LoggerFactory.getLogger(getClass().getName());
 
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
+	@Autowired
+	UserRepository userRepository;
+
 	@GetMapping("/")
 	public String showHome(Model model) {
 		model.addAttribute("title", "Home - Smart Contact Manager");
@@ -45,11 +51,11 @@ public class HomeController {
 		return "signup";
 	}
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-
-	@Autowired
-	UserRepository userRepository;
+	@GetMapping("/signin")
+	public String signup(Model m) {
+		m.addAttribute("title", "Signin - Smart Contact Manager");
+		return "login";
+	}
 
 	/*
 	 * The model attribute matches the fields form view and user-template and assign
