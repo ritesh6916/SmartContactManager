@@ -42,7 +42,11 @@ public class MyBeansConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/**").hasRole("USER")
-				.antMatchers("/**").permitAll().and().formLogin().loginPage("/signin").and().csrf().disable();
+				.antMatchers("/**").permitAll().and().formLogin().loginPage("/signin") // To display custom login page
+				.loginProcessingUrl("/dologin") // the url/handler which process login request
+				.defaultSuccessUrl("/user/index/") // To route user if the login is successful
+				// .failureUrl("/login-fail") // routed if login fails
+				.and().csrf().disable();
 	}
 
 }
