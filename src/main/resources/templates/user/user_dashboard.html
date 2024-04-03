@@ -1,11 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/user_base::layout(~{::section})">
+<!-- The fragment from base.html will be replace here -->
 <head>
-	<meta charset="UTF-8" />
-	<title>user_dashboard</title>
+<meta charset="UTF-8" />
+<title>This is home page</title>
 </head>
 <body>
-	<h1>Welcome back..</h1>
-	<h3>This is your private dash-board</h3>
+	<!-- this section code will be passes as parameter in layout "layout(~{::section})" -->
+	<section
+		class="banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h2 class="font-weight-bold">
+				Welcome back <span th:text="${user.name}"></span>
+			</h2>
+			<p>Start collecting your contacts in more efficient way without
+				loosing them.</p>
+			<button class="btn bg-primary">Get-Started</button>
+		</div>
+
+	</section>
 </body>
 </html>
