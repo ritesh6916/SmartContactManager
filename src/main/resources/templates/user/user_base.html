@@ -15,6 +15,11 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+	integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <!-- Thymeleaf syntax to add static file "@{/}" -->
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 <!-- "@{/}" will give path of "static" folder -->
@@ -28,13 +33,6 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
 		<a class="navbar-brand" href="#">Smart Contact Manager - User</a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -55,8 +53,48 @@
 	<!-- END of NAV-Bar -->
 
 
+	<!-- The code of "" will be replaced in-place of the div tag -->
+	<div class="sidebar">
+
+		<span onclick="toggleSidebar()" class="crossbtn">&times;</span>
+
+		<!-- Sidebar Home -->
+		<a href="#" class="item"><i class="fas fa-home"></i> Home</a>
+
+		<!-- sidebar VIWE Contact -->
+		<a href="#" class="item"><i class="fas fa-id-card-alt"> </i> View
+			Contacts</a>
+
+		<!-- sidebar NWE Contact -->
+		<a href="#" class="item"> <i class="fas fa-pencil-alt"></i> Add
+			Contact
+		</a>
+
+		<!-- sidebar Profile -->
+		<a href="#" class="item"><i class="fas fa-user-circle"></i> Your
+			Profile </a>
+
+		<!-- sidebar Settings  -->
+		<a href="#" class="item"> <i class="fas fa-cog"> </i> Setting
+		</a>
+
+		<!-- sidebar Logout  -->
+		<a href="#" class="item"><i class="fas fa-sign-out-alt"></i>
+			Logout</a> <i class="fa-solid fa-house"></i>
+
+		<div class="devider"></div>
+
+	</div>
+
 	<!-- The code of "content" will be replaced in-place of the div tag -->
-	<div th:replace="${content}"></div>
+	<div class="content">
+
+		<!-- for 3 PI bar  -->
+		<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+
+		<div th:replace="${content}"></div>
+	</div>
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

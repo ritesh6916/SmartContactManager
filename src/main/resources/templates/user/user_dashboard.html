@@ -4,20 +4,18 @@
 <!-- The fragment from base.html will be replace here -->
 <head>
 <meta charset="UTF-8" />
-<title>This is home page</title>
+<title>This is User Dashboard</title>
 </head>
 <body>
 	<!-- this section code will be passes as parameter in layout "layout(~{::section})" -->
-	<section
-		class="banner d-flex justify-content-center align-items-center">
+	<section>
 		<div class="text-center">
 			<h2 class="font-weight-bold">
 				Welcome back <span th:text="${user.name}"></span>
 			</h2>
-			<p>Start collecting your contacts in more efficient way without
-				loosing them.</p>
-			<button class="btn bg-primary">Get-Started</button>
 		</div>
+
+
 
 	</section>
 </body>
