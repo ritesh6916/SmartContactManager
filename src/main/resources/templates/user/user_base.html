@@ -30,7 +30,7 @@
 <body>
 
 	<!-- Start of NAV-Bar -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="fixed-top navbar navbar-expand-lg navbar-dark bg-primary">
 
 		<a class="navbar-brand" href="#">Smart Contact Manager - User</a>
 
@@ -53,21 +53,23 @@
 	<!-- END of NAV-Bar -->
 
 
+	<!-- SIDE BAR -->
 	<!-- The code of "" will be replaced in-place of the div tag -->
-	<div class="sidebar">
+	<div class="sidebar mt-2">
 
 		<span onclick="toggleSidebar()" class="crossbtn">&times;</span>
 
 		<!-- Sidebar Home -->
-		<a href="#" class="item"><i class="fas fa-home"></i> Home</a>
+		<a href="#" th:href="@{/user/index}" class="item"><i
+			class="fas fa-home"></i> Home</a>
 
 		<!-- sidebar VIWE Contact -->
 		<a href="#" class="item"><i class="fas fa-id-card-alt"> </i> View
 			Contacts</a>
 
 		<!-- sidebar NWE Contact -->
-		<a href="#" class="item"> <i class="fas fa-pencil-alt"></i> Add
-			Contact
+		<a href="#" th:href="@{/user/add-contact}" class="item"> <i
+			class="fas fa-pencil-alt"></i> Add Contact
 		</a>
 
 		<!-- sidebar Profile -->
@@ -79,15 +81,15 @@
 		</a>
 
 		<!-- sidebar Logout  -->
-		<a href="#" class="item"><i class="fas fa-sign-out-alt"></i>
-			Logout</a> <i class="fa-solid fa-house"></i>
+		<a href="#" th:href="@{/logout}" class="item"><i
+			class="fas fa-sign-out-alt"></i> Logout</a> <i class="fa-solid fa-house"></i>
 
 		<div class="devider"></div>
 
 	</div>
 
 	<!-- The code of "content" will be replaced in-place of the div tag -->
-	<div class="content">
+	<div class="content mt-5">
 
 		<!-- for 3 PI bar  -->
 		<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
